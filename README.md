@@ -20,3 +20,24 @@ The idea is to make a version of probeseq that works with not only oral bugs but
 
 * gg_otus-13_8-release/rep_set/97_otus.fasta
 * NCBI's 16S database (to be added)
+
+# Run a small test dataset
+
+```{bash}
+cd ~/repos/name-that-microbe
+
+IN=tests/small.fasta
+OUT=tests/small.out
+LOG=tests/small.log
+AMBIG=tests/small_ambig.fasta
+
+#V1-3 region
+#START=69
+#END=533
+
+#V3-4 region
+START=338
+END=682
+
+python utils/generate_ref_set.py -i $IN -o $OUT -s $START -e $END -l $LOG -a $AMBIG
+```
