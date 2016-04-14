@@ -23,6 +23,8 @@ The idea is to make a version of probeseq that works with not only oral bugs but
 
 # Run a small test dataset
 
+## Generate a reference database
+
 ```{bash}
 cd ~/repos/name-that-microbe
 
@@ -40,4 +42,17 @@ START=338
 END=682
 
 python utils/generate_ref_set.py -i $IN -o $OUT -s $START -e $END -l $LOG -a $AMBIG
+```
+
+## Annotate some fake sequence data
+
+```{bash}
+cd ~/repos/name-that-microbe
+
+REF_FILE=tests/small.out
+FASTA=tests/small_dataset.fasta
+OUTFILE=tests/small_dataset_annotated.txt
+LOG=tests/small_dataset.log
+
+python annotate.py -r $REF_FILE -i $FASTA -o $OUTFILE -l $LOG
 ```
